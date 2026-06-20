@@ -1,0 +1,8 @@
+const PAYMENT_STATUS = Object.freeze({
+  PENDING: "PENDING",
+  COMPLETED: "COMPLETED",
+  VERIFIED: "VERIFIED",
+  REJECTED: "REJECTED",
+});
+
+module.exports = PAYMENT_STATUS;
