@@ -1,0 +1,7 @@
+const STUDENT_STATUS = Object.freeze({
+  ACTIVE: "ACTIVE",
+  SUSPENDED: "SUSPENDED",
+  GRADUATED: "GRADUATED",
+});
+
+module.exports = STUDENT_STATUS;

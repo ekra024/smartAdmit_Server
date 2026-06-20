@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
-const DeanApproval = require("../models/DeanApproval");
+const StudentRecord = require("../models/StudentRecord");
 
 router.get("/", async (req, res) => {
-  const totalDeanApprovals = await DeanApproval.countDocuments();
+  const totalRecords = await StudentRecord.countDocuments();
 
   res.status(200).json({
     success: true,
-    message: "DeanApproval Model Loaded Successfully",
-    totalDeanApprovals,
+    message: "StudentRecord Model Loaded Successfully",
+    totalRecords,
   });
 });
 
