@@ -2,10 +2,14 @@ const express = require("express");
 
 const router = express.Router();
 
+const ROLES = require("../constants/roles");
+const APPLICATION_STATUS = require("../constants/applicationStatus");
+
 router.get("/", (req, res) => {
   res.status(200).json({
     success: true,
-    message: "Smart Admit API Running",
+    roles: ROLES,
+    applicationStatus: APPLICATION_STATUS,
   });
 });
 
