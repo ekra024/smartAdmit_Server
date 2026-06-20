@@ -28,6 +28,12 @@ const departmentReviewSchema = new mongoose.Schema(
       required: [true, "Remarks are required"],
       trim: true,
     },
+    
+    department: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Department",
+      required: [true, "Department is required"],
+    },
 
     reviewedAt: {
       type: Date,
@@ -36,10 +42,7 @@ const departmentReviewSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
-module.exports = mongoose.model(
-  "DepartmentReview",
-  departmentReviewSchema
-);
+module.exports = mongoose.model("DepartmentReview", departmentReviewSchema);
