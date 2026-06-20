@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const ROLES = require("../constants/roles");
+const bcrypt = require("bcryptjs");
 
 const adminSchema = new mongoose.Schema(
   {
@@ -61,5 +62,9 @@ const adminSchema = new mongoose.Schema(
     timestamps: true,
   },
 );
+
+adminSchema.methods.comparePassword = async function (candidatePassword) {
+  return await bcrypt.compare(candidatePassword, this.password);
+};
 
 module.exports = mongoose.model("Admin", adminSchema);

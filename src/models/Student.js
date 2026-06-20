@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const ROLES = require("../constants/roles");
 
 const studentSchema = new mongoose.Schema(
   {
@@ -34,6 +35,12 @@ const studentSchema = new mongoose.Schema(
     dateOfBirth: {
       type: Date,
       required: true,
+    },
+
+    role: {
+      type: String,
+      enum: [ROLES.STUDENT],
+      default: ROLES.STUDENT,
     },
 
     gender: {
