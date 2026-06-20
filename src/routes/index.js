@@ -1,15 +1,15 @@
 const express = require("express");
-
 const router = express.Router();
 
-const ROLES = require("../constants/roles");
-const APPLICATION_STATUS = require("../constants/applicationStatus");
+const Student = require("../models/Student");
 
-router.get("/", (req, res) => {
-  res.status(200).json({
+router.get("/", async (req, res) => {
+  const totalStudents = await Student.countDocuments();
+
+  res.json({
     success: true,
-    roles: ROLES,
-    applicationStatus: APPLICATION_STATUS,
+    message: "Student Model Loaded Successfully",
+    totalStudents,
   });
 });
 
