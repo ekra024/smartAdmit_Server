@@ -46,6 +46,11 @@ const adminSchema = new mongoose.Schema(
       ref: "Department",
       default: null,
     },
+    faculty: {
+      type: String,
+      default: null,
+      trim: true,
+    },
 
     isActive: {
       type: Boolean,
@@ -54,7 +59,7 @@ const adminSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.model("Admin", adminSchema);
