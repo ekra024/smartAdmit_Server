@@ -1,0 +1,8 @@
+const DOCUMENT_STATUS = Object.freeze({
+  PENDING: "PENDING",
+  UPLOADED: "UPLOADED",
+  VERIFIED: "VERIFIED",
+  REJECTED: "REJECTED",
+});
+
+module.exports = DOCUMENT_STATUS;

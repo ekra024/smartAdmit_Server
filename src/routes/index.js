@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-const Admin = require("../models/Admin");
+const Document = require("../models/Document");
 
 router.get("/", async (req, res) => {
-  const totalAdmins = await Admin.countDocuments();
+  const totalDocuments = await Document.countDocuments();
 
   res.json({
     success: true,
-    message: "Admin Model Loaded Successfully",
-    totalAdmins,
+    message: "Document Model Loaded Successfully",
+    totalDocuments,
   });
-})
+});
 
 module.exports = router;
