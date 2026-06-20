@@ -33,7 +33,7 @@ app.use("/", indexRoutes);
 
 // 404 Handler
 
-app.all("*", (req, res, next) => {
+app.use((req, res, next) => {
   next(new AppError(`Route ${req.originalUrl} not found`, 404));
 });
 
