@@ -21,7 +21,28 @@ const login = catchAsync(async (req, res) => {
   });
 });
 
+const getMe = catchAsync(async (req, res) => {
+  const result = await authService.getMe(req.user);
+
+  res.status(200).json({
+    success: true,
+    message: "User retrieved successfully",
+    data: result,
+  });
+});
+
+const logout = catchAsync(async (req, res) => {
+  await authService.logout();
+
+  res.status(200).json({
+    success: true,
+    message: "Logout successful",
+  });
+});
+
 module.exports = {
   registerStudent,
   login,
+  getMe,
+  logout,
 };

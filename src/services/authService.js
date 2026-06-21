@@ -72,7 +72,16 @@ const login = async (payload) => {
   };
 };
 
+const getMe = async(user) => {
+  return user;
+}
+const logout = async () => {
+  return null;
+};
+
 module.exports = {
   registerStudent,
   login,
+  getMe,
+  logout,
 };
