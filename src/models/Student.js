@@ -85,6 +85,7 @@ const studentSchema = new mongoose.Schema(
         board: String,
         passingYear: Number,
         gpa: Number,
+        group: String,
       },
       hsc: {
         roll: String,
@@ -92,6 +93,7 @@ const studentSchema = new mongoose.Schema(
         board: String,
         passingYear: Number,
         gpa: Number,
+        group: String,
       },
     },
 
