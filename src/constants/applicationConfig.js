@@ -1,0 +1,6 @@
+const APPLICATION_CONFIG = {
+  PREFIX: "BU",
+  SERIAL_LENGTH: 5,
+};
+
+module.exports = APPLICATION_CONFIG;

@@ -3,6 +3,13 @@ const APPLICATION_STATUS = require("../constants/applicationStatus");
 
 const applicationSchema = new mongoose.Schema(
   {
+    applicationId: {
+      type: String,
+      required: true,
+      unique: true,
+      immutable: true,
+    },
+
     student: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Student",
@@ -11,20 +18,25 @@ const applicationSchema = new mongoose.Schema(
       index: true,
     },
 
-    applicationId: {
+    admissionSession: {
       type: String,
-      required: [true, "Application ID is required"],
-      unique: true,
       trim: true,
+      default: "",
+    },
+
+    quota: {
+      type: String,
+      enum: ["GENERAL", "FREEDOM_FIGHTER", "TRIBAL", "DISABLED"],
+      default: "GENERAL",
     },
 
     applicationYear: {
       type: Number,
-      default: new Date().getFullYear(),
       required: true,
+      default: () => new Date().getFullYear(), // ✅ arrow function দিয়ে fix করা হয়েছে
     },
 
-    status: {
+    applicationStatus: {
       type: String,
       enum: Object.values(APPLICATION_STATUS),
       default: APPLICATION_STATUS.DRAFT,
@@ -45,15 +57,10 @@ const applicationSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
-
-    isSubmitted: {
-      type: Boolean,
-      default: false,
-    },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.model("Application", applicationSchema);
